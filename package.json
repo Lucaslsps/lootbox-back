@@ -1,27 +1,31 @@
 {
-  "name": "lootbox-back",
+  "name": "lootbox",
   "version": "1.0.0",
-  "description": "Melhor projetin de lootbox que existe, pro mattier ver",
-  "main": "index.js",
+  "description": "Projeto para apreendizado de tecnologia Node.js usando a parada mais louca que tem",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lucaslsps/lootbox.git"
+    "url": "git+https://github.com/Lucaslsps/lootbox-back.git"
   },
   "keywords": [
-    "lootbox",
-    "mattier"
+    "lootbox"
   ],
-  "author": "",
+  "author": "Lucas Peixoto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Lucaslsps/lootbox/issues"
+    "url": "https://github.com/Lucaslsps/lootbox-back/issues"
   },
-  "homepage": "https://github.com/Lucaslsps/lootbox#readme",
+  "homepage": "https://github.com/Lucaslsps/lootbox-back#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "mongoose": "^5.9.6",
+    "request": "^2.88.2"
   }
 }
