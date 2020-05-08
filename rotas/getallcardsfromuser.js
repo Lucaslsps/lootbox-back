@@ -16,18 +16,7 @@ const Card = require('../models/Card');
 const User = require('../models/User');
 
 router.post('/', (req, res) =>{
-  card = req.body.card
-  email = req.body.email
-
-  User.findOneAndUpdate({email:email},{
-    $push: {cards:card._id}
-  })
-  .then(user => {
-    newUser = user;
-    console.log(user);
-    console.log(JSON.stringify(user))
-    res.end("foi")
-  })
+  res.end("getallcardsfromuser")
 })
 
 module.exports = router;
