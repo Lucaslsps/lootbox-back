@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const http = require('http');
+const io = require('socket.io');
+const app = express();
+
+
 
 // DB Config
 const db = require('../config/keys').MongoURI;
@@ -12,10 +17,6 @@ mongoose.connect(db, { useNewUrlParser: true})
 
 // Modelo de card
 const Card = require('../models/Card');
-
-async function getAllCards(){
-    return(await Card.find().lean().exec());
-}
 
 router.get('/', async (req, res) => {
     try{
@@ -53,38 +54,16 @@ router.get('/', async (req, res) => {
                     selectedCards.push(selectedCard);
                 }
             }
+            
+
             res.header("Access-Control-Allow-Origin", "*");
             return res.end(JSON.stringify(selectedCards))
-            res.send(selectedCards);
         });
 
     } catch(error){
         res.status(500).send(error);
     }
-/*
-     Card
-    .find({}, {colecao:1})
-    .distinct('colecao', function(err, colecao){
-        col_escolhida = colecao[Math.floor(Math.random() * colecao.length)];
-    })
-    .then(ret =>{
-        
-        Card
-        .find({colecao:col_escolhida})
-        .then( col_escolhida_valores =>{            
-            console.log(col_escolhida);    
-            cards_escolhidos = [];
 
-            while(cards_escolhidos.length < 3){
-                card_aux = col_escolhida_valores[Math.floor(Math.random() * col_escolhida_valores.length)];
-                if(cards_escolhidos.includes(card_aux)){continue;};
-                cards_escolhidos.push(card_aux);
-            }
-            res.header("Access-Control-Allow-Origin", "*");
-            return res.end(JSON.stringify(cards_escolhidos))
-            res.send('index.ejs', {cards: cards_escolhidos, colecao: col_escolhida});
-        })
-    });*/
 })
 
 module.exports = router;

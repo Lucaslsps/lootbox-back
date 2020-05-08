@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
+require('dotenv').config()
 module.exports = router;
 module.exports = {
-    MongoURI: 'mongodb+srv://lucaslsps:963852@cluster0-re02j.mongodb.net/test?retryWrites=true&w=majority'
+    MongoURI: process.env.MONGO_URI
 }
